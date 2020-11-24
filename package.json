@@ -1,0 +1,25 @@
+{
+    "name": "as86-assembler",
+    "displayName": "as86 assembler",
+    "description": "Syntax highlighting for as86 assembler",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.51.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "as86",
+            "aliases": ["as86", "as86"],
+            "extensions": [".s"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "as86",
+            "scopeName": "source.s",
+            "path": "./syntaxes/as86.tmLanguage.json"
+        }]
+    }
+}
