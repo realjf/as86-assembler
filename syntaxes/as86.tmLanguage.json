@@ -3,7 +3,7 @@
 	"name": "as86",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#constants"
 		},
 		{
 			"include": "#strings"
@@ -12,52 +12,32 @@
 			"include": "#comments"
 		},
 		{
-			"include": "#supports"
+			"include": "#keywords"
 		},
 		{
-			"include": "#constants"
+			"include": "#supports"
 		},
 		{
 			"include": "#entities"
 		},
 		{
 			"#include": "#variables"
+		},
+		{
+			"#include": "#directives"
 		}
 	],
 	"repository": {
-		"keywords": {
+		"comments": {
 			"patterns": [
 				{
-					"name": "keyword.control.as86",
-					"match": "(?i:aaa|aad|aam|aas|adc|add|addpd|addps|addsd|addss|addsubpd|addsubps|aesdec|aesdeclast|aesenc|aesenclast|aesimc|aeskeygenassist|and|andpd|andps|andnpd|andnps|arpl|blendpd|bmi|blendps|blendvpd|blendvps|bound|bsf|bsr|bswap|bt|btc|btr|bts|cbw|cwde|cdqe|clc|cld|cflush|clts|cmc|cmov(n?e|ge?|ae?|le?|be?|n?o|n?z)|cmp|cmppd|cmpps|cmps|cnpsb|cmpsw|cmpsd|cmpsq|cmpss|cmpxchg|cmpxchg8b|cmpxchg16b|comisd|comiss|cpuid|crc32|cvtdq2pd|cvtdq2ps|cvtpd2dq|cvtpd2pi|cvtpd2ps|cvtpi2pd|cvtpi2ps|cvtps2dq|cvtps2pd|cvtps2pi|cvtsd2si|cvtsd2ss|cvts2sd|cvtsi2ss|cvtss2sd|cvtss2si|cvttpd2dq|cvtpd2pi|cvttps2dq|cvttps2pi|cvttps2dq|cvttps2pi|cvttsd2si|cvttss2si|cwd|cdq|cqo|daa|das|dec|div|divpd|divps|divsd|divss|dppd|dpps|emms|enter|extractps|f2xm1|fabs|fadd|faddp|fiadd|fbld|fbstp|fchs|fclex|fnclex|fcmov(n?e|ge?|ae?|le?|be?|n?o|n?z)|fcom|fcmop|fcompp|fcomi|fcomip|fucomi|fucomip|fcos|fdecstp|fdiv|fdivp|fidiv|fdivr|fdivrp|fidivr|ffree|ficom|ficomp|fild|fincstp|finit|fnint|fist|fistp|fisttp|fld|fld1|fldl2t|fldl2e|fldpi|fldlg2|fldln2|fldz|fldcw|fldenv|fmul|fmulp|fimul|fnop|fpatan|fprem|fprem1|fptan|frndint|frstor|fsave|fnsave|fscale|fsin|fsincos|fsqrt|fst|fstp|fstcw|fnstcw|fstenv|fnstenv|fsts(w?)|fnstsw|fsub|fsubp|fisub|fsubr|fsubrp|fisubr|ftst|fucom|fucomp|fucompp|fxam|fxch|fxrstor|fxsave|fxtract|fyl2x|fyl2xp1|haddpd|haddps|husbpd|hsubps|idiv|imul|in|inc|ins|insb|insw|insd|insertps|int|into|invd|invlpg|invpcid|iret|iretd|iretq|lahf|lar|lddqu|ldmxcsr|lds|les|lfs|lgs|lss|lea|leave|lfence|lgdt|lidt|llgdt|lmsw|lock|lods|lodsb|lodsw|lodsd|lodsq|lsl|ltr|maskmovdqu|maskmovq|maxpd|maxps|maxsd|maxss|mfence|minpd|minps|minsd|minss|monitor|mov|movapd|movaps|movbe|movd|movq|movddup|movdqa|movdqu|movq2q|movhlps|movhpd|movhps|movlhps|movlpd|movlps|movmskpd|movmskps|movntdqa|movntdq|movnti|movntpd|movntps|movntq|movq|movq2dq|movs|movsb|movsw|movsd|movsq|movsd|movshdup|movsldup|movss|movsx|movsxd|movupd|movups|movzx|mpsadbw|mul|mulpd|mulps|mulsd|mulss|mwait|neg|not|or|orpd|orps|out|outs|outsb|outsw|outsd|pabsb|pabsw|pabsd|packsswb|packssdw|packusdw|packuswb|paddb|paddw|paddd|paddq|paddsb|paddsw|paddusb|paddusw|palignr|pand|pandn|pause|pavgb|pavgw|pblendvb|pblendw|pclmulqdq|pcmpeqb|pcmpeqw|pcmpeqd|pcmpeqq|pcmpestri|pcmpestrm|pcmptb|pcmptgw|pcmpgtd|pcmpgtq|pcmpistri|pcmpisrm|pdep|pext|pextrb|pextrd|pextrq|pextrw|phaddw|phaddd|phaddsw|phinposuw|phsubw|phsubd|phsubsw|pinsrb|pinsrd|pinsrq|pinsrw|pmaddubsw|pmadddwd|pmaxsb|pmaxsd|pmaxsw|pmaxsw|pmaxub|pmaxud|pmaxuw|pminsb|pminsd|pminsw|pminub|pminud|pminuw|pmovmskb|pmovsx|pmovzx|pmuldq|pmulhrsw|pmulhuw|pmulhw|pmulld|pmullw|pmuludw|pop|popa|popad|popcnt|popf|popfd|popfq|por|prefetch|psadbw|pshufb|pshufd|pshufhw|pshuflw|pshufw|psignb|psignw|psignd|pslldq|psllw|pslld|psllq|psraw|psrad|psrldq|psrlw|psrld|psrlq|psubb|psubw|psubd|psubq|psubsb|psubsw|psubusb|psubusw|test|ptest|punpckhbw|punpckhwd|punpckhdq|punpckhddq|punpcklbw|punpcklwd|punpckldq|punpckldqd|push|pusha|pushad|pushf|pushfd|pxor|prcl|rcr|rol|ror|rcpps|rcpss|rdfsbase|rdgsbase|rdmsr|rdpmc|rdrand|rdtsc|rdtscp|rep|repe|repz|repne|repnz|roundpd|roundps|roundsd|roundss|rsm|rsqrps|rsqrtss|sahf|sal|sar|shl|shr|sbb|scas|scasb|scasw|scasd|set(n?e|ge?|ae?|le?|be?|n?o|n?z)|sfence|sgdt|shld|shrd|shufpd|shufps|sidt|sldt|smsw|sqrtpd|sqrtps|sqrtsd|sqrtss|stc|std|stmxcsr|stos|stosb|stosw|stosd|stosq|str|sub|subpd|subps|subsd|subss|swapgs|syscall|sysenter|sysexit|sysret|teset|ucomisd|ucomiss|ud2|unpckhpd|unpckhps|unpcklpd|unpcklps|vbroadcast|vcvtph2ps|vcvtp2sph|verr|verw|vextractf128|vinsertf128|vmaskmov|vpermilpd|vpermilps|vperm2f128|vtestpd|vzeroall|vzeroupper|wait|fwait|wbinvd|wrfsbase|wrgsbase|wrmsr|xadd|xchg|xgetbv|xlat|xlatb|xor|xorpd|xorps|xrstor|xsave|xsaveopt|xsetbv|lzcnt|extrq|insertq|movntsd|movntss|vfmaddpd|vfmaddps|vfmaddsd|vfmaddss|vfmaddsubbpd|vfmaddsubps|vfmsubaddpd|vfmsubaddps|vfmsubpd|vfmsubps|vfmsubsd|vfnmaddpd|vfnmaddps|vfnmaddsd|vfnmaddss|vfnmsubpd|vfnmusbps|vfnmusbsd|vfnmusbss|vbroadcastss|vbroadcastsd|vbroadcastf128|vmaskmovps|vmaskmovpd|cvt|xor|cli|sti|hlt|nop|lock|wait|enter|leave|ret|loop(n?e|n?z)?|call|j(mp|n?e|n?ge?|n?ae?|le?|be?|n?o|n?z|n?c|n?p|n?b))"
-				},
-				{
-					"name": "keyword.other.as86",
-					"match": "(?i:EXPORT|PUBLIC|DEFINE|ENTRY|EXTRN|EXTERN|IMPORT|\\.EXTERN|NB|\\.ENTER)"
-				},
-				{
-					"name": "keyword.other.as86",
-					"match": "(?i:\\.BLKB|RMB|\\.SPACE|\\.BLKW|\\.ZEROW|COMM|\\.COMM|LCOMM|\\.LCOMM)"
-				},
-				{
-					"name": "keyword.other.as86",
-					"match": "(?i:SET|ORG|\\.ORG|BLOCK|ENDB|GET|INCLUDE|END|\\.WARN|\\.LIST|\\.MACLIST|USE16|USE32)"
-				},
-				{
-					"name": "keyword.other.as86",
-					"match": "(?i:BYTE|DWORD|FWORD|FAR|PTR|PWORD|QWORD|TBYTE|WORD|NEAR)"
-				},
-				{
-					"name": "keyword.other.as86",
-					"match": "(?i:MACRO|MEND)"
-				},
-				{
-					"name": "keyword.operator.as86",
-					"match": "(?i:SSP|F2XM1|FABS|FADD|FADDP|FBLD|FBSTP|FCHS|FCLEX|FCOM|FCOMP|FCOMPP|FCOS|FDECSTP|FDISI|FDIV|FDIVP|FDIVR|FDIVRP|FENI|FFREE|FIADD|FICOM|FICOMP|FIDIV|FIDIVR|FILD|FIMUL|FINCSTP|FINIT|FIST|FISTP|FISUB|FISUBR|FLD|FLD1|FLDL2E|FLDL2T|FLDCW|FLDENV|FLDLG2|FLDLN2|FLDPI|FLDZ|FMUL|FMULP|FNCLEX|FNDISI|FNENI|FNINIT|FNOP|FNSAVE|FNSTCW|FNSTENV|FNSTSW|FPATAN|FPREM|FPREM1|FPTAN|FRNDINT|FRSTOR|FSAVE|FSCALE|FSETPM|FSIN|FSINCOS|FSQRT|FST|FSTCW|FSTENV|FSTP|FSTSW|FSUB|FSUBP|FSUBR|FSUBRP|FTST|FUCOM|FUCOMP|FUCOMPP|FWAIT|FXAM|FXCH|FXTRACT|FYL2X|FYL2XP1|AAA|AAD|AAM|AAS|ADC|ADD|AND|ARPL|BOUND|BSF|BSR|BSWAP|BT|BTC|BTR|BTS|CALL|CBW|CDQ|CLC|CLD|CLI|CLTS|CMC|CMP|CMPS|CMPSB|CMPSD|CMPSW|CMPW|CMPXCHG|CSEG|CWD|CWDE|DAA|DAS|DEC|DIV|DSEG|ENTER|HLT|IDIV|IMUL|IN|INC|INS|INSB|INSD|INSW|INT|INTO|INVD|INVLPG|INW|IRET|IRETD|J|JA|JAE|JB|JBE|JC|JCXE|JCXZ|JE|JECXE|JECXZ|JG|JGE|JL|JLE|JMP|JNA|JNAE|JNB|JNBE|JNC|JNE|JNG|JNGE|JNL|JNLE|JNO|JNP|JNS|JNZ|JO|JP|JPE|JPO|JS|JZ|LAHF|LAR|LDS|LEA|LEAVE|LES|LFS|LGDT|LGS|LIDT|LLDT|LMSW|LOCK|LODB|LODS|LODSB|LODSD|LODSW|LODW|LOOP|LOOPE|LOOPNE|LOOPNZ|LOOPZ|LSL|LSS|LTR|MOV|MOVS|MOVSB|MOVSD|MOVSW|MOVSX|MOVW|MOVZX|MUL|NEG|NOP|NOT|OR|OUT|OUTS|OUTSB|OUTSD|OUTSW|OUTW|POP|POPA|POPAD|POPF|POPFD|PUSH|PUSHA|PUSHAD|PUSHF|PUSHFD|RCL|RCR|REP|REPE|REPNE|REPNZ|REPZ|RET|RETF|RETI|ROL|ROR|SAHF|SAL|SAR|SBB|SCAB|SCAS|SCASB|SCASD|SCASW|SCAW|SEG|SETA|SETAE|SETB|SETBE|SETC|SETE|SETG|SETGE|SETL|SETLE|SETNA|SETNAE|SETNB|SETNBE|SETNC|SETNE|SETNG|SETNGE|SETNL|SETNLE|SETNO|SETNP|SETNS|SETNZ|SETO|SETP|SETPE|SETPO|SETS|SETZ|SGDT|SHL|SHLD|SHR|SHRD|SIDT|SLDT|SMSW|STC|STD|STI|STOB|STOS|STOSB|STOSD|STOSW|STOW|STR|SUB|TEST|VERR|VERW|WAIT|WBINVD|XADD|XCHG|XLAT|XLATB|XOR|ADCB|ADDB|ANDB|CMPB|DECB|DIVB|IDIVB|IMULB|INB|INCB|MOVB|MULB|NEGB|NOTB|ORB|OUTB|RCLB|RCRB|ROLB|RORB|SALB|SARB|SHLB|SHRB|SBBB|SUBB|TESTB|XCHGB|XORB)"
-				},
-				{
-					"name": "keyword.operator.as86",
-					"match": "(?i:BCC|BCS|BEQ|BGE|BGT|BHI|BHIS|BLE|BLO|BLOS|BLT|BMI|BNE|BPC|BPL|BPS|BVC|BVS|BR)"
+					"name": "comment.line.as86",
+					"match": "\\s?(!.*)$",
+					"captures": {
+						"1": {
+							"name": "comment.line.as86"
+						}
+					}
 				}
 			]
 		},
@@ -72,70 +52,142 @@
 				}
 			]
 		},
-		"comments": {
+		"constants": {
 			"patterns": [
 				{
-					"name": "comment.line.character.as86",
-					"match": "\\!.*"
+					"name": "constant.character.dec.as86",
+					"match": "\\b([0-9]+)\\b",
+					"captures": {
+						"1": {
+							"name": "constant.numeric.dec.as86"
+						}
+					}
+				},
+				{
+					"name": "constant.character.hex.as86",
+					"match": "\\b((0x|0X)[A-F0-9a-f]+)\\b",
+					"captures": {
+						"1": {
+							"name": "constant.numeric.hex.as86"
+						}
+					}
+				},
+				{
+					"name": "constant.character.hex.as86",
+					"match": "\\b([A-F0-9a-f]+(h|H))\\b",
+					"captures": {
+						"1": {
+							"name": "constant.numeric.hex.as86"
+						}
+					}
+				},
+				{
+					"name": "constant.character.bin.as86",
+					"match": "\\b([0-1]+b)\\b",
+					"captures": {
+						"1": {
+							"name": "constant.numeric.bin.as86"
+						}
+					}
+				}
+			]
+		},
+		"directives": {
+			"patterns": []
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.as86",
+					"match": "\\b(?i:if|elseif|else|endif|db|dw|dd|dq|dt|do|resb|resw|resd|resq|rest|reso|incbin|equ|times|byte|word|dword|qword|tbyte|nosplit|near|far|org|label|struc|endstruc|istruc|iend|at|align|alignb|ends|offset|short|length|size|public|goto|seg|repeat|until)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.control.as86"
+						}
+					},
+					"comment": "Names Pseudo Instructions case insensitive"
 				}
 			]
 		},
 		"supports": {
 			"patterns": [
 				{
-					"name": "support.type.as86",
-					"match": "(?i:DB|\\.DATA1|\\.BYTE|FCB|DW|\\.DATA2|\\.SHORT|FDB|\\.WORD|DD|\\.DATA4|\\.LONG|\\.ASCII|FCC|BP|BX|DI|SI|EAX|EBP|EBX|ECX|EDI|EDX|ESI|ESP|AX|CX|DX|SP|AH|AL|BH|BL|CH|CL|DH|DL|CS|DS|ES|FS|GS|SS|CR0|CR2|CR3|DR0|DR1|DR2|DR3|DR6|DR7|TR3|TR4|TR5|TR6|TR7|ST)"
+					"name": "support.class.mmx.as86",
+					"match": "\\b(?i:rdpmc|emms|movd|movq|packssdw|packsswb|packuswb|paddb|paddd|paddsb|paddsw|paddusb|paddusw|paddw|pand|pandn|pcmpeqb|pcmpeqd|pcmpeqw|pcmpgtb|pcmpgtd|pcmpgtw|pmaddwd|pmulhw|pmullw|por|pslld|psllq|psllw|psrad|psraw|psrld|psrlq|psrlw|psubb|psubd|psubsb|psubsw|psubusb|psubusw|psubw|punpckhbw|punpckhdq|punpckhwd|punpcklbw|punpckldq|punpcklwd|pxor|paveb|paddsiw|pmagw|pdistib|psubsiw|pmvzb|pmulhrw|pmvnzb|pmvlzb|pmvgezb|pmulhriw|pmachriw)\\b",
+					"captures": {
+						"1": {
+							"name": "support.class.mmx.as86"
+						}
+					}
 				},
 				{
-					"name": "support.function.directive.as86",
-					"begin": "\\[",
-					"end": "\\]"
+					"name": "support.class.as86",
+					"match": "(?i:\\.code|\\.data|\\.stack|\\.model|\\.end)",
+					"captures": {
+						"1": {
+							"name": "support.class.constant.as86"
+						}
+					},
+					"comment": "constant names case insensitive"
 				},
 				{
-					"name": "support.function.directive.as86",
-					"match": "(?i:(d(b|w|d|q|t|o|y)|res(b|w|d|q|t|o)|equ|times|align|alignb|sectalign|section|ptr|byte|word|dword|qword|incbin|))"
-				}
-			]
-		},
-		"constants": {
-			"patterns": [
-				{
-					"name": "constant.numeric.as86",
-					"match": "(?i:#|0x|0|#0x)*\\d+"
+					"name": "support.class.80188.as86",
+					"match": "\\b(?i:bound|enter|ins|leave|outs|popa|pusha)\\b",
+					"captures": {
+						"1": {
+							"name": "support.class.80188.as86"
+						}
+					},
+					"comment": "Function 80186/80188 case insensitive"
 				},
 				{
-					"name": "constant.character.decimal.as86",
-					"match": "[0-9]+"
+					"name": "support.class.80286.as86",
+					"match": "\\b(?i:arpl|clts|lar|lgdt|lidt|lldt|lmsw|loadall|lsl|ltr|sgdt|sidt|sldt|smsw|str|verr|verw)\\b",
+					"captures": {
+						"1": {
+							"name": "support.class.80286.as86"
+						}
+					},
+					"comment": "Function 80286 case insensitive"
 				},
 				{
-					"name": "constant.character.hexadecimal.as86",
-					"match": "(0x)(?i:[A-F0-9]+)"
-				},
-				{
-					"name": "constant.character.hexadecimal.as86",
-					"match": "(?i:[A-F0-9]+h)"
-				},
-				{
-					"name": "constant.character.binary.as86",
-					"match": "(?i:(0|1)+b)"
+					"name": "support.class.80386.as86",
+					"match": "\\b(?i:bsf|bsr|bt|btc|btr|bts|cdq|cmpsd|cwde|insb|insw|insd|iret|iretd|jcxz|jecxz|lsf|lgs|lss|lodsd|loopw|loopd|loopew|looped|loopzw|loopzd|loopnew|loopned|loopnzw|loopnzd|movsw|movsd|movsx|movzx|popad|popfd|pushad|pushfd|scasd|seta|setae|setb|setbe|setc|sete|setg|setge|setl|setle|setna|setnae|setnb|setnbe|setnc|setne|setng|setnge|setnl|setnle|setno|setnp|setns|setnz|seto|setp|setpe|setpo|sets|setz|shld|shrd|stosb|stosw)\\b",
+					"captures": {
+						"1": {
+							"name": "support.class.80386.as86"
+						}
+					},
+					"comment": "Function 80386 case insensitive"
 				}
 			]
 		},
 		"entities": {
 			"patterns": [
 				{
-					"name": "entity.name.section.as86",
-					"match": "(?i:\\.GLOBL|\\.GLOBAL|\\.ALIGN|\\.EVEN|EQU|\\.TEXT|\\.ROM|\\.DATA|\\.BSS)"
+					"name": "entity.name.function.reg.as86",
+					"match": "\\b(?i:al|ah|ax|eax|bl|bh|bx|ebx|cl|ch|cx|ecx|dl|dh|dx|edx|si|esi|di|edi|bp|ebp|sp|esp|cs|ds|ss|es|fs|gs|ip|eip|eflags|id|vip|vif|ac|vm|rf|nt|iopl|of|df|if|tf|sf|zf|af|pf|cf|st0|st1|st2|st3|st4|st5|st6|st7|ss0|ss1|ss2|esp0|esp1|esp2|mm0|mm1|mm2|mm3|mm4|mm5|mm6|mm7|xmm0|xmm1|xmm2|xmm3|xmm4|xmm5|xmm6|xmm7|xmcrt|cr0|cr2|cr3|cr4|gdtr|ldtr|idtr|dr0|dr1|dr2|dr3|dr6|dr7|msr|rax|rbx|rcx|rdx|rsi|rdi|rsp|rbp|r8|r9|r10|r11|r12|r13|r14|r15|r8d|r9d|r10d|r11d|r12d|r13d|r14d|r15d|r8w|r9w|r10w|r11w|r12w|r13w|r14w|r15w|r8l|r9l|r10l|r11l|r12l|r13l|r14l|r15l)\\b",
+					"captures": {
+						"1": {
+							"name": "entity.name.function.reg.as86"
+						}
+					},
+					"comment": "Names registers case insensitive"
+				},
+				{
+					"name": "entity.name.function.directives.as86",
+					"match": "\\b(?i:bits 16|bits 32|bits 64|use16|use32|use64|\\[bits 16\\]|\\[bits 32\\]|\\[bits 64\\]|default|section|segment|absolute|extern|global|common|cpu)\\b",
+					"captures": {
+						"1": {
+							"name": "entity.name.function.directives.as86"
+						}
+					},
+					"comment": "Names Pseudo Instructions case insensitive"
 				}
 			]
 		},
 		"variables": {
-			"patterns": [
-				{
-					"name": "variable.parameter.register.as86",
-					"match": "(?i:RBP|EBP|BP|CS|DS|ES|FS|GS|SS|RAX|EAX|RBX|EBX|RCX|ECX|RDX|EDX|RIP|EIP|IP|RSP|ESP|SP|RSI|ESI|SI|RDI|EDI|DI|RFLAGS|EFLAGS|FLAGS|R(8|9|10|11|12|13|14|15)(d|w|b)?|(Y|X)MM([0-9]|10|11|12|13|14|15)|(A|B|C|D)(X|H|L)|CR[0-4]|DR[0-7]|TR6|TR7|EFER)"
-				}
-			]
+			"patterns": []
 		}
 	},
 	"scopeName": "source.s"
