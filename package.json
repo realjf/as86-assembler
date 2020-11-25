@@ -10,16 +10,33 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "as86",
-            "aliases": ["as86", "as86"],
-            "extensions": [".s"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "as86",
-            "scopeName": "source.s",
-            "path": "./syntaxes/as86.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "as86",
+                "aliases": [
+                    "as86",
+                    "as86"
+                ],
+                "extensions": [
+                    ".s"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "as86",
+                "scopeName": "source.s",
+                "path": "./syntaxes/as86.tmLanguage.json"
+            }
+        ],
+        "themes": [
+            {
+                "id": "realjf-dark+",
+                "label": "realjf-dark+",
+                "uiTheme": "vs-dark",
+                "path": "./themes/realjf_plus.json"
+            }
+        ]
     }
 }

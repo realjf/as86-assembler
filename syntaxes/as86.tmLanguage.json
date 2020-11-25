@@ -24,18 +24,18 @@
 			"#include": "#variables"
 		},
 		{
-			"#include": "#directives"
+			"#include": "#storages"
 		}
 	],
 	"repository": {
 		"comments": {
 			"patterns": [
 				{
-					"name": "comment.line.as86",
+					"name": "comment.line",
 					"match": "\\s?(!.*)$",
 					"captures": {
 						"1": {
-							"name": "comment.line.as86"
+							"name": "comment.line"
 						}
 					}
 				}
@@ -55,139 +55,182 @@
 		"constants": {
 			"patterns": [
 				{
-					"name": "constant.character.dec.as86",
+					"name": "constant.numeric.dec",
 					"match": "\\b([0-9]+)\\b",
 					"captures": {
 						"1": {
-							"name": "constant.numeric.dec.as86"
+							"name": "constant.numeric.dec"
 						}
 					}
 				},
 				{
-					"name": "constant.character.hex.as86",
+					"name": "constant.numeric.hex",
 					"match": "\\b((0x|0X)[A-F0-9a-f]+)\\b",
 					"captures": {
 						"1": {
-							"name": "constant.numeric.hex.as86"
+							"name": "constant.numeric.hex"
 						}
 					}
 				},
 				{
-					"name": "constant.character.hex.as86",
-					"match": "\\b([A-F0-9a-f]+(h|H))\\b",
-					"captures": {
-						"1": {
-							"name": "constant.numeric.hex.as86"
-						}
-					}
-				},
-				{
-					"name": "constant.character.bin.as86",
+					"name": "constant.numeric.bin",
 					"match": "\\b([0-1]+b)\\b",
 					"captures": {
 						"1": {
-							"name": "constant.numeric.bin.as86"
+							"name": "constant.numeric.bin"
 						}
 					}
 				}
 			]
 		},
-		"directives": {
+		"storages": {
 			"patterns": []
 		},
 		"keywords": {
 			"patterns": [
 				{
-					"name": "keyword.control.as86",
-					"match": "\\b(?i:if|elseif|else|endif|db|dw|dd|dq|dt|do|resb|resw|resd|resq|rest|reso|incbin|equ|times|byte|word|dword|qword|tbyte|nosplit|near|far|org|label|struc|endstruc|istruc|iend|at|align|alignb|ends|offset|short|length|size|public|goto|seg|repeat|until)\\b",
+					"name": "keyword.control",
+					"match": "\\b(?i:if|elseif|else|endif)\\b",
 					"captures": {
 						"1": {
-							"name": "keyword.control.as86"
+							"name": "keyword.control"
 						}
 					},
 					"comment": "Names Pseudo Instructions case insensitive"
+				},
+				{
+					"name": "keyword.control",
+					"match": "\\b(?i:ifc|elseifc)\\b",
+					"comment": "string compare(str1,str2)"
+				},
+				{
+					"name": "keyword.operator",
+					"match": "!|&|&&|\\^|\\*|\\/|\\-|\\+|~|=|<=|>=|<<|>>|<>|<|>|\\||\\|\\|\\%|\\[|\\]"
+				},
+				{
+					"name": "keyword.operator",
+					"match": "(\\b)?(?i:byte|dword|fword|far|ptr|pword|qword|tbyte|word|near)\\b"
 				}
 			]
 		},
 		"supports": {
 			"patterns": [
 				{
-					"name": "support.class.mmx.as86",
-					"match": "\\b(?i:rdpmc|emms|movd|movq|packssdw|packsswb|packuswb|paddb|paddd|paddsb|paddsw|paddusb|paddusw|paddw|pand|pandn|pcmpeqb|pcmpeqd|pcmpeqw|pcmpgtb|pcmpgtd|pcmpgtw|pmaddwd|pmulhw|pmullw|por|pslld|psllq|psllw|psrad|psraw|psrld|psrlq|psrlw|psubb|psubd|psubsb|psubsw|psubusb|psubusw|psubw|punpckhbw|punpckhdq|punpckhwd|punpcklbw|punpckldq|punpcklwd|pxor|paveb|paddsiw|pmagw|pdistib|psubsiw|pmvzb|pmulhrw|pmvnzb|pmvlzb|pmvgezb|pmulhriw|pmachriw)\\b",
+					"name": "support.class",
+					"match": "(?i:\\.code|\\.data|\\.stack|\\.model|\\.end|\\.text|\\.rom|\\.bss)",
 					"captures": {
 						"1": {
-							"name": "support.class.mmx.as86"
-						}
-					}
-				},
-				{
-					"name": "support.class.as86",
-					"match": "(?i:\\.code|\\.data|\\.stack|\\.model|\\.end)",
-					"captures": {
-						"1": {
-							"name": "support.class.constant.as86"
+							"name": "support.class.constant"
 						}
 					},
-					"comment": "constant names case insensitive"
-				},
-				{
-					"name": "support.class.80188.as86",
-					"match": "\\b(?i:bound|enter|ins|leave|outs|popa|pusha)\\b",
-					"captures": {
-						"1": {
-							"name": "support.class.80188.as86"
-						}
-					},
-					"comment": "Function 80186/80188 case insensitive"
-				},
-				{
-					"name": "support.class.80286.as86",
-					"match": "\\b(?i:arpl|clts|lar|lgdt|lidt|lldt|lmsw|loadall|lsl|ltr|sgdt|sidt|sldt|smsw|str|verr|verw)\\b",
-					"captures": {
-						"1": {
-							"name": "support.class.80286.as86"
-						}
-					},
-					"comment": "Function 80286 case insensitive"
-				},
-				{
-					"name": "support.class.80386.as86",
-					"match": "\\b(?i:bsf|bsr|bt|btc|btr|bts|cdq|cmpsd|cwde|insb|insw|insd|iret|iretd|jcxz|jecxz|lsf|lgs|lss|lodsd|loopw|loopd|loopew|looped|loopzw|loopzd|loopnew|loopned|loopnzw|loopnzd|movsw|movsd|movsx|movzx|popad|popfd|pushad|pushfd|scasd|seta|setae|setb|setbe|setc|sete|setg|setge|setl|setle|setna|setnae|setnb|setnbe|setnc|setne|setng|setnge|setnl|setnle|setno|setnp|setns|setnz|seto|setp|setpe|setpo|sets|setz|shld|shrd|stosb|stosw)\\b",
-					"captures": {
-						"1": {
-							"name": "support.class.80386.as86"
-						}
-					},
-					"comment": "Function 80386 case insensitive"
+					"comment": "set current segment"
 				}
 			]
 		},
 		"entities": {
 			"patterns": [
 				{
-					"name": "entity.name.function.reg.as86",
-					"match": "\\b(?i:al|ah|ax|eax|bl|bh|bx|ebx|cl|ch|cx|ecx|dl|dh|dx|edx|si|esi|di|edi|bp|ebp|sp|esp|cs|ds|ss|es|fs|gs|ip|eip|eflags|id|vip|vif|ac|vm|rf|nt|iopl|of|df|if|tf|sf|zf|af|pf|cf|st0|st1|st2|st3|st4|st5|st6|st7|ss0|ss1|ss2|esp0|esp1|esp2|mm0|mm1|mm2|mm3|mm4|mm5|mm6|mm7|xmm0|xmm1|xmm2|xmm3|xmm4|xmm5|xmm6|xmm7|xmcrt|cr0|cr2|cr3|cr4|gdtr|ldtr|idtr|dr0|dr1|dr2|dr3|dr6|dr7|msr|rax|rbx|rcx|rdx|rsi|rdi|rsp|rbp|r8|r9|r10|r11|r12|r13|r14|r15|r8d|r9d|r10d|r11d|r12d|r13d|r14d|r15d|r8w|r9w|r10w|r11w|r12w|r13w|r14w|r15w|r8l|r9l|r10l|r11l|r12l|r13l|r14l|r15l)\\b",
+					"name": "storage.type.reg",
+					"match": "\\b(?i:al|ah|ax|eax|bl|bh|bx|ebx|cl|ch|cx|ecx|dl|dh|dx|edx|si|esi|di|edi|bp|ebp|sp|esp|cs|ds|ss|es|fs|gs|cr0|cr2|cr3|dr0|dr1|dr2|dr3|dr6|dr7|tr3|tr4|tr5|tr6|tr7|st)\\b",
 					"captures": {
 						"1": {
-							"name": "entity.name.function.reg.as86"
+							"name": "storage.type.reg"
 						}
 					},
-					"comment": "Names registers case insensitive"
+					"comment": "registers"
 				},
 				{
-					"name": "entity.name.function.directives.as86",
-					"match": "\\b(?i:bits 16|bits 32|bits 64|use16|use32|use64|\\[bits 16\\]|\\[bits 32\\]|\\[bits 64\\]|default|section|segment|absolute|extern|global|common|cpu)\\b",
+					"name": "entity.name.function",
+					"match": "\\b(?i:calli|callf|jmpi|jmpf)\\b",
 					"captures": {
 						"1": {
-							"name": "entity.name.function.directives.as86"
+							"name": "entity.name.function"
 						}
 					},
-					"comment": "Names Pseudo Instructions case insensitive"
+					"comment": "intersegment"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "\\b(?i:eseg|fseg|gseg|sseg)\\b",
+					"captures": {
+						"1": {
+							"name": "entity.name.function"
+						}
+					},
+					"comment": "segment modifier instructions"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "\\b(?i:adcb|addb|andb|cmpb|decb|divb|idivb|imulb|inb|incb|movb|mulb|negb|nootb|orb|outb|rclb|rcrb|rolb|rorb|salb|sarb|shlb|shrb|sbbb|subb|testb|xchgb|xorb)\\b",
+					"captures": {
+						"1": {
+							"name": "entity.name.function"
+						}
+					},
+					"comment": "byte operation instructions"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "\\b(?i:aaa|aad|aam|aas|adc|add|and|arpl|bound|bsf|bsr|bswap|bt|btc|btr|bts|call|cbw|cdq|clc|cld|cli|clts|cmc|cmp|cmps|cmpsb|cmpsd|cmpsw|cmpw|cmpxchg|cseg|cwd|cwde|daa|das|dec|div|dseg|enter|hlt|idiv|imul|in|inc|ins|insb|insd|insw|int|into|invd|invlpg|inw|iret|iretd|j|ja|jae|jb|jbe|jc|jcxe|jcxz|je|jecxe|jecxz|jg|jge|jl|jle|jmp|jna|jnae|jnb|jnbe|jnc|jne|jng|jnge|jnl|jnle|jno|jnp|jns|jnz|jo|jp|jpe|jpo|js|jz|lahf|lar|lds|lea|leave|les|lfs|lgdt|lgs|lidt|lldt|lmsw|lock|lodb|lods|lodsb|lodsd|lodsw|lodw|loop|loope|loopne|loopnz|loopz|lsl|lss|ltr|mov|movs|movsb|movsd|movsw|movsx|movw|movzx|mul|neg|nop|not|or|out|outs|outsb|outsd|outsw|outw|pop|popa|popad|popf|popfd|push|pusha|pushad|pushf|pushfd|rcl|rcr|rdmsr|rep|repe|repne|repnz|repz|ret|retf|reti|rol|ror|sahf|sal|sar|sbb|scab|scas|scasb|scasd|scasw|scaw|seg|seta|setae|setb|setbe|setc|sete|setg|setge|setl|setle|setna|setnae|setnb|setnbe|setnc|setne|setng|setnge|setnl|setnle|setno|setnp|setns|setnz|seto|setp|setpe|setpo|sets|setz|sgdt|shl|shld|shr|shrd|sidt|sldt|smsw|stc|std|sti|stob|stos|stosb|stosd|stosw|stow|str|sub|test|verr|verw|wait|wbinvd|wrmsr|xadd|xchg|xlat|xlatb|xor)\\b",
+					"captures": {
+						"1": {
+							"name": "entity.name.function"
+						}
+					},
+					"comment": "standard instructions"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "\\b(?i:f2xm1|fabs|fadd|faddp|fbld|fbstp|fchs|fclex|fcom|fcomp|fcompp|fcos|fdecstp|fdisi|fdiv|fdivp|fdivr|fdivrp|feni|ffree|fiadd|ficom|ficomp|fidiv|fidivr|fild|fimul|fincstp|finit|fist|fistp|fisub|fisubr|fld|fld1|fldl2e|fldl2t|fldcw|fldenv|fldlg2|fldln2|fldpi|fldz|fmul|fmulp|fnclex|fndisi|fneni|fninit|fnop|fnsave|fnstcw|fnstenv|fnstsw|fpatan|fprem|fprem1|fptan|frndint|frstor|fsave|fscale|fsetpm|fsin|fsincos|fsqrt|fst|fstcw|fstenv|fstp|fstsw|fsub|fsubp|fsubr|fsubrp|ftst|fucom|fucomp|fucompp|fwait|fxam|fxch|fxtract|fyl2x|fyl2xp1)\\b",
+					"captures": {
+						"1": {
+							"name": "entity.name.function"
+						}
+					},
+					"comment": "floating point"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "\\b(?i:bc(c|s)|beq|bg(e|t)|bhi(s?)|bl(e|o(s?)|t)|bmi|bne|bp(c|l|s)|bv(c|s)|br)\\b",
+					"captures": {
+						"1": {
+							"name": "entity.name.function"
+						}
+					},
+					"comment": "long branches"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "\\b(?i:fail|\\.fail)\\b",
+					"comment": "generate user error"
+				},
+				{
+					"name": "markup.heading",
+					"match": "(?i:\\.glob(a?)l)"
+				},
+				{
+					"name": "entity.name.tag",
+					"match": "(?i:[\\w]+)(\\:)"
+				},
+				{
+					"name": "storage.type.data",
+					"match": "(\\b)?(?i:\\.data1|\\.byte|fcb|db|dw|dd|\\.data2|\\.short|fdb|\\.word|\\.data4|\\.long|\\.ascii|fcc|\\.asciz)\\b",
+					"comment": "data definition"
+				},
+				{
+					"name": "storage.type.space",
+					"match": "(\\b)?(?i:\\.blkb|rmb|\\.space|\\.blkw|\\.zerow|comm|\\.comm|lcomm|\\.lcomm)\\b",
+					"comment": "space definition"
 				}
 			]
 		},
 		"variables": {
-			"patterns": []
+			"patterns": [
+				{
+					"name": "variable.language",
+					"match": "(\\b)?(?i:\\.align|\\.even|equ|set|org|\\.org|block|endb|\\.define|export|public|loc|get|include|use16|use32|end|\\.warn|\\.list|\\.maclist|macro|mend|ident|setdp|map)\\b"
+				}
+			]
 		}
 	},
 	"scopeName": "source.s"
