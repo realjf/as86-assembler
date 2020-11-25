@@ -2,7 +2,7 @@
     "name": "as86-assembler",
     "displayName": "as86 assembler",
     "description": "Syntax highlighting for as86 assembler",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "realjf",
     "engines": {
         "vscode": "^1.51.0"
@@ -39,5 +39,9 @@
                 "path": "./themes/realjf_plus.json"
             }
         ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/realjf/as86-assembler.git"
     }
 }
