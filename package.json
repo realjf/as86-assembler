@@ -3,6 +3,7 @@
     "displayName": "as86 assembler",
     "description": "Syntax highlighting for as86 assembler",
     "version": "0.0.1",
+    "publisher": "realjf",
     "engines": {
         "vscode": "^1.51.0"
     },
